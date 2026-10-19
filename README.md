@@ -8,7 +8,18 @@ lets you browse, search and organise them, without ever moving or changing your 
 
 Named after Jorge Luis Borges' story *The Library of Babel*.
 
+![Babel's library view in dark mode](docs/home.png)
+
+<details>
+<summary>Light mode, and the Preferences window</summary>
+
+![Babel's library view in light mode](docs/home-light.png)
+
 <p align="center"><img src="docs/preferences.png" width="640" alt="Babel's Preferences window"></p>
+</details>
+
+<sub>Screenshots show a demo library of public-domain classics with stand-in covers.
+With your own books, Babel shows each book's real cover.</sub>
 
 ## Features
 

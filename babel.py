@@ -3654,7 +3654,15 @@ def main():
         w.showMaximized()
     else:
         w.show()
-    sys.exit(app.exec())
+    code = app.exec()
+    # Tidy up before Python exits: left to itself, Python destroys Qt objects in an
+    # arbitrary order and crashed (segfault) on every close.
+    app.removeEventFilter(app._smooth)
+    w.model.pool.waitForDone(2000)           # cover loading still in flight
+    for top in QApplication.topLevelWidgets():
+        top.deleteLater()
+    app.processEvents()
+    sys.exit(code)
 
 
 if __name__ == "__main__":
