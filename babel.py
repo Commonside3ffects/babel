@@ -63,7 +63,7 @@ def themed_icon(widget, path):
     widget.setIcon(QIcon(themed_icon_path(path)))
     _THEMED.append((widget, path))
 REFRESH_ICON = os.path.join(APP_DIR, "refresh.svg")
-VERSION = "1.2"
+VERSION = "1.3"
 WINDOW_RADIUS = 12      # GNOME's window corner radius
 CHEVRON_ACCENT = os.path.join(APP_DIR, "chevron-down-accent.svg")
 
