@@ -1,0 +1,12 @@
+# build tools and output
+.build-venv/
+build/
+dist/
+__pycache__/
+*.pyc
+# logs and local scratch
+*.log
+icon-options/
+icon-option*.png
+icon-preview.png
+*.before-*
