@@ -42,13 +42,20 @@ Open Library ([credits](docs/CREDITS.md)). With your own books, Babel shows each
   for PDF).
 - **Light and dark mode**, following GNOME's setting, plus a GNOME-style window.
 
-## Requirements
+## Install
 
-- Linux (developed on GNOME / Wayland)
-- Python 3.10+
-- PyQt6 and Pillow (`pip install -r requirements.txt`, or your distro's packages)
+The easiest way to run Babel: download `Babel-<version>-x86_64.AppImage` from
+[Releases](https://github.com/Commonside3ffects/babel/releases), make it executable
+(right-click → Properties → "Executable as Program", or `chmod +x`), and open it. It runs on
+most Linux systems from 2022 onwards (Ubuntu 22.04, Debian 12, Fedora, Arch and newer).
+To add it to your app menu, run it once with `--install`.
 
-Optional helpers, used when installed:
+On first launch Babel asks for your books folder. Everything else is in
+**Preferences** (Ctrl+,).
+
+## Optional helpers
+
+Used when installed:
 
 | Tool | Package | Used for |
 |---|---|---|
@@ -61,12 +68,15 @@ Optional helpers, used when installed:
 
 ## Run from source
 
+Requirements:
+
+- Linux (developed on GNOME / Wayland)
+- Python 3.10+
+- PyQt6 and Pillow (`pip install -r requirements.txt`, or your distro's packages)
+
 ```bash
 python3 babel.py
 ```
-
-On first launch Babel asks for your books folder. Everything else is in
-**Preferences** (Ctrl+,).
 
 To add Babel to your app menu:
 
@@ -76,15 +86,9 @@ python3 babel.py --install
 
 `--uninstall` removes it again; your library data is kept.
 
-## AppImage
+## Build the AppImage yourself
 
-The easiest way to run Babel: download `Babel-<version>-x86_64.AppImage` from
-[Releases](https://github.com/Commonside3ffects/babel/releases), make it executable
-(right-click → Properties → "Executable as Program", or `chmod +x`), and open it. It runs on
-most Linux systems from 2022 onwards (Ubuntu 22.04, Debian 12, Fedora, Arch and newer).
-To add it to your app menu, run it once with `--install`.
-
-To build it yourself, install [podman](https://podman.io) and run `./build-appimage.sh`.
+Install [podman](https://podman.io) and run `./build-appimage.sh`.
 It builds inside an Ubuntu 22.04 container so that the result also runs on older systems.
 
 ## Where things are kept
