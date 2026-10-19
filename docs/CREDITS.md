@@ -34,6 +34,7 @@ Via the [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers). 
 | The Adventures of Sherlock Holmes | [work page](https://openlibrary.org/works/OL262421W) | [cover 14622714](https://covers.openlibrary.org/b/id/14622714-L.jpg) |
 | The Brothers Karamazov | [work page](https://openlibrary.org/works/OL24600223W) | [cover 11263774](https://covers.openlibrary.org/b/id/11263774-L.jpg) |
 | The Cherry Orchard | [work page](https://openlibrary.org/works/OL13052106W) | [cover 12670128](https://covers.openlibrary.org/b/id/12670128-L.jpg) |
+| The Count of Monte Cristo | [work page](https://openlibrary.org/works/OL20098701W) | [cover 15215974](https://covers.openlibrary.org/b/id/15215974-L.jpg) |
 | The Death of Ivan Ilyich | [work page](https://openlibrary.org/works/OL16563010W) | [cover 11616112](https://covers.openlibrary.org/b/id/11616112-L.jpg) |
 | The Idiot | [work page](https://openlibrary.org/works/OL20906897W) | [cover 10249475](https://covers.openlibrary.org/b/id/10249475-L.jpg) |
 | The Metamorphosis | [work page](https://openlibrary.org/works/OL15176533W) | [cover 6889547](https://covers.openlibrary.org/b/id/6889547-L.jpg) |
@@ -52,7 +53,6 @@ Via the [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers). 
 |---|---|---|
 | Poems, First Series | [Poems by Emily Dickinson, Cover.png](https://commons.wikimedia.org/wiki/File:Poems_by_Emily_Dickinson,_Cover.png) | Public domain |
 | Poems, Second Series | [Emily Dickinson Poems - Second Series.jpg](https://commons.wikimedia.org/wiki/File:Emily_Dickinson_Poems_-_Second_Series.jpg) | Public domain |
-| The Castle | [Kafka Das Schloss 1926.jpg](https://commons.wikimedia.org/wiki/File:Kafka_Das_Schloss_1926.jpg) | Public domain |
 
 One book (*Symposium*) uses a cover drawn for the demo.
 
