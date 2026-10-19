@@ -39,6 +39,7 @@ library, and will be removed on request.
 | Human Acts | [Open Library](https://openlibrary.org/isbn/9781101906729) |
 | Klara and the Sun | [Open Library](https://openlibrary.org/works/OL20883297W) |
 | Labyrinths | [Open Library](https://openlibrary.org/works/OL110959W) |
+| The Library of Babel | [Open Library](https://openlibrary.org/isbn/9781567921236) |
 | Life on Mars | [Open Library](https://openlibrary.org/works/OL20966063W) |
 | Lincoln in the Bardo | [Open Library](https://openlibrary.org/works/OL17635834W) |
 | My Brilliant Friend | [Open Library](https://openlibrary.org/works/OL34947113W) |
