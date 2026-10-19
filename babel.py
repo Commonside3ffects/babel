@@ -20,7 +20,7 @@ from PyQt6.QtCore import (QSizeF, QStorageInfo, QAbstractListModel, QEvent, QFil
                           QTimer, QUrl, pyqtSignal)
 from PyQt6.QtGui import (QAction, QBrush, QColor, QDesktopServices, QFont,
                          QFontMetrics, QIcon, QImage, QKeySequence, QLinearGradient,
-                         QPainter, QPainterPath, QPen, QPixmap, QShortcut, QTextOption)
+                         QPainter, QPainterPath, QPalette, QPen, QPixmap, QShortcut, QTextOption)
 from PyQt6.QtWidgets import (QStyleOptionViewItem, QAbstractButton, QDialog, QFileDialog, QMenu, QMessageBox,
                              QStackedWidget, QToolButton, QAbstractItemView, QApplication, QComboBox, QFrame,
                              QGridLayout, QHBoxLayout, QLabel, QLineEdit, QListView,
@@ -3206,6 +3206,7 @@ class MainWindow(QMainWindow):
         set_palette(want)
         global STYLE
         STYLE = build_style()
+        QApplication.instance().setPalette(qt_palette())
         QApplication.instance().setStyleSheet(STYLE + chrome_style(WINDOW_RADIUS))
         for widget, path in list(_THEMED):
             try:
@@ -3418,6 +3419,23 @@ class MainWindow(QMainWindow):
         self.settings.setValue("maximized", self.fills_screen())
         self.settings.setValue("splitter", self.splitter.saveState())
         super().closeEvent(e)
+
+
+def qt_palette():
+    """Qt's own colours for the current theme, so widgets Babel doesn't style itself
+    (such as Qt's built-in file dialog) are dark or light to match, not white."""
+    pal = QPalette()
+    R = QPalette.ColorRole
+    for role, colour in ((R.Window, PANEL), (R.Base, BG), (R.AlternateBase, PANEL_2),
+                         (R.Button, PANEL_2), (R.ToolTipBase, PANEL_2),
+                         (R.WindowText, TEXT), (R.Text, TEXT), (R.ButtonText, TEXT),
+                         (R.ToolTipText, TEXT), (R.PlaceholderText, MUTED),
+                         (R.Highlight, ACCENT), (R.HighlightedText, ON_ACCENT),
+                         (R.Link, ACCENT_TEXT), (R.Mid, LINE), (R.Dark, LINE_STRONG)):
+        pal.setColor(role, QColor(colour))
+    for role in (R.WindowText, R.Text, R.ButtonText):
+        pal.setColor(QPalette.ColorGroup.Disabled, role, QColor(MUTED))
+    return pal
 
 
 def build_style():
@@ -3651,6 +3669,10 @@ def main():
         uninstall()
         return
     install_safety_net()
+    if FROZEN and os.environ.get("QT_QPA_PLATFORMTHEME") not in ("xdgdesktopportal", "gtk3"):
+        # the packaged app can't load KDE's or other desktops' own Qt plugins, so ask the
+        # desktop for its file picker through the portal (Qt uses its own if there's none)
+        os.environ["QT_QPA_PLATFORMTHEME"] = "xdgdesktopportal"
     QApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
     app = QApplication(sys.argv)
     app.setApplicationName("Babel")
@@ -3660,6 +3682,7 @@ def main():
     set_palette(wanted_theme())
     global STYLE
     STYLE = build_style()
+    app.setPalette(qt_palette())
     app.setStyleSheet(STYLE + chrome_style(WINDOW_RADIUS))
     app._smooth = SmoothShapes(app)
     app.installEventFilter(app._smooth)
