@@ -3524,8 +3524,10 @@ def install():
     """Put Babel in the app menu: copy the binary to ~/.local/bin, add the icon and a launcher."""
     if FROZEN:
         os.makedirs(os.path.dirname(BIN_PATH), exist_ok=True)
-        if os.path.abspath(sys.executable) != BIN_PATH:
-            shutil.copy2(sys.executable, BIN_PATH)
+        # inside an AppImage, sys.executable is in a temporary mount; copy the AppImage file itself
+        program = os.environ.get("APPIMAGE") or sys.executable
+        if os.path.abspath(program) != BIN_PATH:
+            shutil.copy2(program, BIN_PATH)
         os.chmod(BIN_PATH, 0o755)
         exec_line = BIN_PATH
     else:

@@ -59,7 +59,7 @@ Optional helpers, used when installed:
 | `kepubify` | kepubify | Kobo-format EPUBs |
 | `udisksctl` | udisks2 | ejecting a Kobo |
 
-## Run
+## Run from source
 
 ```bash
 python3 babel.py
@@ -76,11 +76,20 @@ python3 babel.py --install
 
 `--uninstall` removes it again; your library data is kept.
 
-## Single-file binary
+## AppImage
 
-`build.sh` bundles Babel, Python and Qt into one executable (`dist/babel`) with
-[PyInstaller](https://pyinstaller.org). It runs on Linux systems at least as new as the
-one it was built on. Copy it to another computer and run `./babel --install`.
+The easiest way to run Babel: download `Babel-<version>-x86_64.AppImage` from
+[Releases](https://github.com/Commonside3ffects/babel/releases), make it executable
+(right-click → Properties → "Executable as Program", or `chmod +x`), and open it. It runs on
+most Linux systems from 2022 onwards (Ubuntu 22.04, Debian 12, Fedora, Arch and newer).
+To add it to your app menu, run it once with `--install`.
+
+To build it yourself, install [podman](https://podman.io) and run `./build-appimage.sh`.
+It builds inside an Ubuntu 22.04 container so that the result also runs on older systems.
+
+`build.sh` makes a plain single-file binary instead (`dist/babel`, with
+[PyInstaller](https://pyinstaller.org)); that one only runs on systems at least as new as
+the one it was built on.
 
 ## Where things are kept
 
