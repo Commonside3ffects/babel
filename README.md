@@ -6,8 +6,6 @@ A desktop library for the books you already have. Point Babel at a folder and it
 finds every EPUB, PDF, Kindle book and comic inside it, collects their covers, and
 lets you browse, search and organise them, without ever moving or changing your files.
 
-Named after Jorge Luis Borges' story *The Library of Babel*.
-
 ![Babel's library view in dark mode](docs/home.png)
 
 <details>
