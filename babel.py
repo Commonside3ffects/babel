@@ -63,7 +63,7 @@ def themed_icon(widget, path):
     widget.setIcon(QIcon(themed_icon_path(path)))
     _THEMED.append((widget, path))
 REFRESH_ICON = os.path.join(APP_DIR, "refresh.svg")
-VERSION = "1.3.1"
+VERSION = "1.3.2"
 WINDOW_RADIUS = 12      # GNOME's window corner radius
 CHEVRON_ACCENT = os.path.join(APP_DIR, "chevron-down-accent.svg")
 
@@ -2342,6 +2342,13 @@ class MainWindow(QMainWindow):
         self.auth_list = FilterList("Filter authors…")
         self.auth_list.chosen.connect(lambda a: self.show_only(author=a))
         self.tabs.addTab(self.auth_list, "Authors")
+        # keep the sidebar wide enough for all three tab names, whatever the
+        # system font; never show scroll arrows that hide the first tab
+        tab_bar = self.tabs.tabBar()
+        tab_bar.setUsesScrollButtons(False)
+        tab_bar.setElideMode(Qt.TextElideMode.ElideRight)
+        tab_bar.ensurePolished()
+        side.setMinimumWidth(tab_bar.sizeHint().width() + 18 + 8)   # 18 = the tab bar's left offset
         sv.addWidget(self.tabs, 1)
         self.splitter.addWidget(side)
 
