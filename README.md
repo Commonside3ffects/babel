@@ -18,7 +18,8 @@ Named after Jorge Luis Borges' story *The Library of Babel*.
 <p align="center"><img src="docs/preferences.png" width="640" alt="Babel's Preferences window"></p>
 </details>
 
-<sub>Screenshots show a demo library of public-domain classics with stand-in covers.
+<sub>Screenshots show a demo library of public-domain classics. The covers are early editions
+from Wikimedia Commons, all public domain ([credits](docs/CREDITS.md)); a few books use stand-in covers.
 With your own books, Babel shows each book's real cover.</sub>
 
 ## Features
