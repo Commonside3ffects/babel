@@ -87,10 +87,6 @@ To add it to your app menu, run it once with `--install`.
 To build it yourself, install [podman](https://podman.io) and run `./build-appimage.sh`.
 It builds inside an Ubuntu 22.04 container so that the result also runs on older systems.
 
-`build.sh` makes a plain single-file binary instead (`dist/babel`, with
-[PyInstaller](https://pyinstaller.org)); that one only runs on systems at least as new as
-the one it was built on.
-
 ## Where things are kept
 
 - Library index and covers: `~/.local/share/babel/`
